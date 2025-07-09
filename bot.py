@@ -88,7 +88,7 @@ async def choose_format(update: Update, context: ContextTypes.DEFAULT_TYPE) -> N
         ("1 сессия — 40 000 ₽", "format_1"),
         ("3 сессии — 105 000 ₽", "format_3"),
         ("5 сессий — 160 000 ₽", "format_5"),
-        ("8 сессий — 250 000 ₽", "format_8"),
+        ("8 сессий — 240 000 ₽", "format_8"),
         ("10 сессий — 270 000 ₽", "format_10")
     ]
     keyboard = [[InlineKeyboardButton(text, callback_data=data)] for text, data in formats]
@@ -105,7 +105,7 @@ async def format_selection(update: Update, context: ContextTypes.DEFAULT_TYPE) -
         "1": ("1 сессия", "40 000 ₽"),
         "3": ("3 сессии", "105 000 ₽"),
         "5": ("5 сессий", "160 000 ₽"),
-        "8": ("8 сессий", "250 000 ₽"),
+        "8": ("8 сессий", "240 000 ₽"),
         "10": ("10 сессий", "270 000 ₽")
     }
     label, price = mapping.get(sessions_number, (f"{sessions_number} сессий", ""))
@@ -175,7 +175,7 @@ async def address_handler(update: Update, context: ContextTypes.DEFAULT_TYPE) ->
             ("1 сессия — 40 000 ₽", "format_1"),
             ("3 сессии — 105 000 ₽", "format_3"),
             ("5 сессий — 160 000 ₽", "format_5"),
-            ("8 сессий — 250 000 ₽", "format_8"),
+            ("8 сессий — 240 000 ₽", "format_8"),
             ("10 сессий — 270 000 ₽", "format_10")
         ]
         keyboard = [[InlineKeyboardButton(text, callback_data=data)] for text, data in formats]
@@ -193,7 +193,7 @@ async def format_handler_conv(update: Update, context: ContextTypes.DEFAULT_TYPE
         "1": ("1 сессия", "40 000 ₽"),
         "3": ("3 сессии", "105 000 ₽"),
         "5": ("5 сессий", "160 000 ₽"),
-        "8": ("8 сессий", "250 000 ₽"),
+        "8": ("8 сессий", "240 000 ₽"),
         "10": ("10 сессий", "270 000 ₽")
     }
     label, price = mapping.get(sessions_number, (f"{sessions_number} сессий", ""))
@@ -330,11 +330,11 @@ async def choose_field_handler(update: Update, context: ContextTypes.DEFAULT_TYP
     if field == "format":
         # Редактирование формата: снова показываем варианты форматов
         formats = [
-            ("1 сессия — 40", "format_1"),
-            ("3 сессии — 105", "format_3"),
-            ("5 сессий — 160", "format_5"),
-            ("8 сессий — 240", "format_8"),
-            ("10 сессий — 270", "format_10")
+            ("1 сессия — 40 000 ₽", "format_1"),
+            ("3 сессии — 105 000 ₽", "format_3"),
+            ("5 сессий — 160 000 ₽", "format_5"),
+            ("8 сессий — 240 000 ₽", "format_8"),
+            ("10 сессий — 270 000 ₽", "format_10")
         ]
         keyboard = [[InlineKeyboardButton(text, callback_data=data)] for text, data in formats]
         await query.message.reply_text("Выберите новый формат:", reply_markup=InlineKeyboardMarkup(keyboard))
