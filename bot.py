@@ -35,6 +35,13 @@ def compose_summary(user_data: dict, prefix: str = "Проверьте, пожа
     )
     return summary_text
 
+
+# Команда для получения chat_id
+async def debug_chat_id(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    chat_id = update.effective_chat.id
+    await update.message.reply_text(f"Chat ID: {chat_id}")
+
+
 # Команда /start — приветствие и главное меню
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     intro_text = (
@@ -408,6 +415,7 @@ def main() -> None:
     application = Application.builder().token(token).build()
 
     # Регистрируем обработчики команд и событий
+    application.add_handler(CommandHandler("get_chat_id", debug_chat_id))
     application.add_handler(CommandHandler("start", start))
     application.add_handler(CommandHandler("cancel", cancel_command_global))
     application.add_handler(CallbackQueryHandler(about_info, pattern="^about$"))
