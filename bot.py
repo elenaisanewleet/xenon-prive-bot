@@ -474,3 +474,16 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
+
+from telegram.error import TelegramError
+
+@application.error_handler
+async def global_error_handler(update: object, context: ContextTypes.DEFAULT_TYPE) -> None:
+    admin_id = os.getenv("ADMIN_CHAT_ID")
+    error_message = f"❗ Бот упал с ошибкой:\n{context.error}"
+
+    try:
+        if admin_id:
+            await context.bot.send_message(chat_id=admin_id, text=error_message)
+    except TelegramError:
+        pass
