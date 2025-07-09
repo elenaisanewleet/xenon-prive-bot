@@ -47,7 +47,7 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
         [InlineKeyboardButton(" Что даёт ингаляция", callback_data="benefits")],
         [InlineKeyboardButton(" Выбрать формат", callback_data="choose_format")],
         [InlineKeyboardButton(" Записаться", callback_data="signup")],
-        [InlineKeyboardButton(" Канал", url="https://t.me/xenonprime")]
+        [InlineKeyboardButton(" Канал", url="https://t.me/xenonprive")]
     ]
     reply_markup = InlineKeyboardMarkup(keyboard)
     await update.message.reply_text(intro_text, reply_markup=reply_markup)
