@@ -279,6 +279,8 @@ async def confirm_send_handler(update: Update, context: ContextTypes.DEFAULT_TYP
     )
     # Отправляем заявку в админский чат
     admin_chat_id = os.getenv("ADMIN_CHAT_ID")
+    print(f"Admin chat ID: {admin_chat_id}")  # ← вставь сюда
+
     if admin_chat_id:
         try:
             admin_chat_id_int = int(admin_chat_id)
